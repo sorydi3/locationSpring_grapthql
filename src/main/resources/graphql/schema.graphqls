@@ -1,13 +1,22 @@
 type query{
-    findDodBreed(id: ID!): String
-    findAllDogNames: [String]
-    findAllDogBreeds: [String]
+    findAllDogs: [Dog]!
+    findAllDogNames: [String]!
+    findDogBreedById: String!
+    findDogBreeds: [String]!
+}
+
+Type Dog{
+    id: ID!
+    name: String!
+    breed: String!
+    age: Int!
+    origin: String!
 }
 
 type Mutation{
-    createDog(name: String!, breed: String!,age: Integer!, origin: String!): Dog
-    updateDog(id: ID!, name: String!, breed: String!,age: Integer!, origin: String!): Dog
-    deleteDog(id: ID!): Dog
+    newDog(name: String!, breed: String!,age: Integer!, origin: String!): Dog!
+    updateDogName(id: ID!, name: String!): Dog!
+    deleteDog(id: ID!): boolean!
 }
 
 type Subscription{

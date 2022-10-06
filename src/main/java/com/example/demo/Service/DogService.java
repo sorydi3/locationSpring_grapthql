@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Entity.Dog;
-import com.example.demo.Exception.NotFoundException;
+import com.example.demo.Exception.CNotFoundException;
 import com.example.demo.Repository.DogRepository;
 
 @Service
@@ -37,12 +37,20 @@ public class DogService {
         return dogsBreed;
     }
 
+    public void deleteById(Long id) {
+        dogRepository.deleteById(id);
+    }
+
+    public void updateDog(Dog dog) {
+        dogRepository.save(dog);
+    }
+
     public Dog retreaveDogByID(Long id) {
         Optional<Dog> dog = dogRepository.findById(id);
         if (dog.isPresent()) {
             return dog.get();
         } else {
-            throw new NotFoundException("Dog not found");
+            throw new CNotFoundException("Dog not found",id);
         }
     }
 
