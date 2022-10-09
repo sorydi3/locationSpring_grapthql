@@ -1,4 +1,4 @@
-package com.example.demo.Service;
+package com.example.demo.service;
 
 import java.util.*;
 
@@ -7,9 +7,9 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.Entity.Dog;
-import com.example.demo.Exception.CNotFoundException;
-import com.example.demo.Repository.DogRepository;
+import com.example.demo.entity.Dog;
+import com.example.demo.exception.CNotFoundException;
+import com.example.demo.repository.DogRepository;
 
 @Service
 public class DogService {

@@ -1,4 +1,4 @@
-package com.example.demo.Query;
+package com.example.demo.resolver;
 
 import java.util.*;
 
@@ -7,15 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.example.demo.Entity.Dog;
-import com.example.demo.Exception.CNotFoundException;
-import com.example.demo.Repository.DogRepository;
+import com.example.demo.entity.Dog;
+import com.example.demo.exception.CNotFoundException;
+import com.example.demo.repository.DogRepository;
 
 @Component
 public class Query implements GraphQLQueryResolver {
     @Autowired
     DogRepository dogRepository;
-    
+ 
+    public Query(DogRepository dogRepository) {
+        this.dogRepository = dogRepository;
+    }
+
     public Iterable<Dog> findAllDogs() {
         return dogRepository.findAll();
     }

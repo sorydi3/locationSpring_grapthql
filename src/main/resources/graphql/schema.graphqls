@@ -1,11 +1,4 @@
-type query{
-    findAllDogs: [Dog]!
-    findAllDogNames: [String]!
-    findDogBreedById: String!
-    findDogBreeds: [String]!
-}
-
-Type Dog{
+type Dog{
     id: ID!
     name: String!
     breed: String!
@@ -13,20 +6,17 @@ Type Dog{
     origin: String!
 }
 
+
+type Query{
+    findAllDogs: [Dog]!
+    findAllDogNames: [String]!
+    findDogBreedById: String!
+    findDogBreeds: [String]!
+}
+
+
 type Mutation{
     newDog(name: String!, breed: String!,age: Integer!, origin: String!): Dog!
     updateDogName(id: ID!, name: String!): Dog!
     deleteDog(id: ID!): boolean!
 }
-
-type Subscription{
-    dogCreated: Dog
-    dogUpdated: Dog
-    dogDeleted: Dog
-}
-
-The schema is pretty simple. We have a Dog type with three fields: id, name, and breed. We also have three queries, three mutations, and three subscriptions.
- The queries are pretty self-explanatory. 
-The mutations are also pretty self-explanatory. The subscriptions are a little more complicated.
- We have three subscriptions, one for each mutation. The subscriptions will be triggered when a mutation is called.
-The subscriptions will return the Dog object that was created, updated, or deleted.

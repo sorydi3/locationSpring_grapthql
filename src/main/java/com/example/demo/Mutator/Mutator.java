@@ -1,17 +1,15 @@
-package com.example.demo.Mutator;
+package com.example.demo.mutator;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.example.demo.repository.DogRepository;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
-import com.example.demo.Entity.Dog;
-import com.example.demo.Exception.CNotFoundException;
-import com.example.demo.Repository.DogRepository;
+import com.example.demo.entity.Dog;
+import com.example.demo.exception.CNotFoundException;
 import java.util.*;
 
 @Component
-public class Mutator implements GraphQLMutationResolver {
-    @Autowired
+public class Mutator implements GraphQLMutationResolver{
     DogRepository dogRepository;
 
     public Dog newDog(String name, String breed, Integer age, String origin) {

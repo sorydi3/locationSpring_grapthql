@@ -1,4 +1,4 @@
-package com.example.demo.Exception;
+package com.example.demo.exception;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -8,7 +8,6 @@ import graphql.language.SourceLocation;
 
 import java.util.*;
 
-import org.apache.logging.log4j.message.Message;
 import org.springframework.http.HttpStatus;
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Dog not found")
